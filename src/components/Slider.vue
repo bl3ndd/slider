@@ -48,6 +48,10 @@ export default {
   methods: {
     changeSlide(slide) {
       this.currentSlide = slide
+      clearTimeout(this.sliderTimeOut)
+      this.sliderTimeOut = setInterval(() => {
+        this.currentSlide = this.currentSlide === 2 ? 0 : this.currentSlide + 1
+      }, 3000)
     }
   },
   mounted() {
